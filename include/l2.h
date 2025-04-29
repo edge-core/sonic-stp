@@ -84,7 +84,7 @@ typedef struct LLC_HEADER
 	BYTE destination_address_DSAP;
 	BYTE source_address_SSAP;
 	BYTE llc_frame_type;
-} __attribute__((aligned(1))) LLC_HEADER;
+} __attribute__((__packed__)) LLC_HEADER;
 
 typedef struct SNAP_HEADER
 {
@@ -95,13 +95,13 @@ typedef struct SNAP_HEADER
 
 	BYTE protocol_id_filler[3];
 	UINT16 protocol_id;
-} __attribute__((aligned(2))) SNAP_HEADER;
+} __attribute__((__packed__)) SNAP_HEADER;
 
 typedef struct MAC_ADDRESS
 {
 	UINT32 _ulong;
 	UINT16 _ushort;
-} __attribute__((aligned(4))) MAC_ADDRESS;
+} __attribute__((__packed__)) MAC_ADDRESS;
 
 #define COPY_MAC(sptr_mac2, sptr_mac1) \
 	(memcpy(sptr_mac2, sptr_mac1, sizeof(MAC_ADDRESS)))
@@ -121,7 +121,7 @@ typedef struct MAC_HEADER
 	MAC_ADDRESS source_address;
 
 	USHORT length;
-} __attribute__((aligned(4))) MAC_HEADER;
+} __attribute__((__packed__)) MAC_HEADER;
 
 #define STP_BPDU_OFFSET (sizeof(MAC_HEADER) + sizeof(LLC_HEADER))
 #define PVST_BPDU_OFFSET (sizeof(MAC_HEADER) + sizeof(SNAP_HEADER))

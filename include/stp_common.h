@@ -62,7 +62,7 @@ typedef struct BRIDGE_BPDU_FLAGS
 	UINT8 blank : 6;
 	UINT8 topology_change_acknowledgement : 1;
 #endif
-} __attribute__((aligned(1))) BRIDGE_BPDU_FLAGS;
+} __attribute__((packed)) BRIDGE_BPDU_FLAGS;
 
 typedef struct BRIDGE_IDENTIFIER
 {
@@ -76,7 +76,7 @@ typedef struct BRIDGE_IDENTIFIER
 
 	MAC_ADDRESS address;
 
-} __attribute__((aligned(4))) BRIDGE_IDENTIFIER;
+} __attribute__((packed)) BRIDGE_IDENTIFIER;
 
 typedef struct PORT_IDENTIFIER
 {
@@ -87,7 +87,7 @@ typedef struct PORT_IDENTIFIER
 	UINT16 number : 12;
 	UINT16 priority : 4;
 #endif // BIG_ENDIAN
-} __attribute__((aligned(2))) PORT_IDENTIFIER;
+} __attribute__((packed)) PORT_IDENTIFIER;
 
 // spanning-tree configuration bpdu
 typedef struct STP_CONFIG_BPDU
@@ -106,7 +106,7 @@ typedef struct STP_CONFIG_BPDU
 	UINT16 max_age;
 	UINT16 hello_time;
 	UINT16 forward_delay;
-} __attribute__((aligned(4))) STP_CONFIG_BPDU;
+} __attribute__((packed)) STP_CONFIG_BPDU;
 
 // spanning-tree topology change notification bpdu
 typedef struct STP_TCN_BPDU
@@ -117,7 +117,7 @@ typedef struct STP_TCN_BPDU
 	UINT8 protocol_version_id;
 	UINT8 type;
 	UINT8 padding[3];
-} __attribute__((aligned(4))) STP_TCN_BPDU;
+} __attribute__((packed)) STP_TCN_BPDU;
 
 // pvst configuration bpdu
 typedef struct PVST_CONFIG_BPDU
@@ -139,7 +139,7 @@ typedef struct PVST_CONFIG_BPDU
 	UINT8 padding[3];
 	UINT16 tag_length;
 	UINT16 vlan_id;
-} __attribute__((aligned(4))) PVST_CONFIG_BPDU;
+} __attribute__((packed)) PVST_CONFIG_BPDU;
 
 // pvst topology change notification bpdu
 typedef struct PVST_TCN_BPDU
@@ -150,6 +150,6 @@ typedef struct PVST_TCN_BPDU
 	UINT8 protocol_version_id;
 	UINT8 type;
 	UINT8 padding[38];
-} __attribute__((aligned(4))) PVST_TCN_BPDU;
+} __attribute__((packed)) PVST_TCN_BPDU;
 
 #endif //__STP_COMMON_H__
