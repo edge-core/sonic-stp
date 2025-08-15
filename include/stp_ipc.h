@@ -71,8 +71,9 @@ typedef struct STP_IPC_MSG
 
 typedef struct STP_INIT_READY_MSG
 {
-    uint8_t opcode; // enable/disable
-    uint16_t max_stp_instances;
+    uint8_t     opcode; // enable/disable
+    uint16_t    max_stp_instances;
+    uint16_t    max_port_number;
 } __attribute__((aligned(4))) STP_INIT_READY_MSG;
 
 typedef struct STP_BRIDGE_CONFIG_MSG

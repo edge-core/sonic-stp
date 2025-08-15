@@ -1829,7 +1829,7 @@ static void stpmgr_process_ipc_msg(STP_IPC_MSG *msg, int len, struct sockaddr_un
             {
                 STP_INIT_READY_MSG *pmsg = (STP_INIT_READY_MSG *)msg->data;
                 /* All ports are initialized in the system. Now build IF DB in STP */
-                ret = stp_intf_event_mgr_init();
+                ret = stp_intf_event_mgr_init(pmsg->max_port_number);
                 if(ret == -1)
                     return;
 

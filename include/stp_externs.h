@@ -179,7 +179,7 @@ extern uint32_t stp_intf_get_kif_index_by_port_id(uint32_t port_id);
 extern uint32_t stp_intf_get_port_id_by_name(char *ifname);
 extern INTERFACE_NODE *stp_intf_get_node_by_name(char *ifname);
 extern struct event_base *stp_intf_get_evbase();
-extern int stp_intf_event_mgr_init(void);
+extern int stp_intf_event_mgr_init(UINT16 max_port_id);
 extern int stp_intf_avl_compare(const void *user_p, const void *data_p, void *param);
 extern void stp_intf_netlink_cb(struct netlink_db_s *if_db, uint8_t is_add, bool init_in_prog);
 extern void stp_intf_reset_port_params();

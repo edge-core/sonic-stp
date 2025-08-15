@@ -586,7 +586,7 @@ int stp_intf_init_po_id_pool()
 }
 
 
-int stp_intf_event_mgr_init(void)
+int stp_intf_event_mgr_init(UINT16 max_port_id)
 {
     struct event *nl_event = 0;
 
@@ -607,6 +607,12 @@ int stp_intf_event_mgr_init(void)
     {
         STP_LOG_CRITICAL("error in intf db creation");
         sys_assert(0);
+    }
+
+    if (g_max_stp_port < max_port_id)
+    {
+        /* use the same calculation formula with original g_max_stp_port */
+        g_max_stp_port = max_port_id + (4 - (max_port_id % 4));
     }
 
     /* This is not expected. Reboot the container to recover */
