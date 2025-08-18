@@ -588,6 +588,7 @@ int stp_intf_init_po_id_pool()
 
 int stp_intf_event_mgr_init(UINT16 max_port_id)
 {
+    int ret = 0;
     struct event *nl_event = 0;
 
     if((g_stpd_ioctl_sock = socket(AF_INET, SOCK_STREAM, 0)) < 0)
